@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+Route::get('/project/{project}', function ($projectId) {
+    $project = \App\Project::find($projectId);
+
+    return view('project', [
+        'project' => $project
+    ]);
+})->where('id', '[0-9]+');

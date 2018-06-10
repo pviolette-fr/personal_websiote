@@ -25,6 +25,7 @@
     </style>
 </head>
 <body>
+
 <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="{{route('home')}}">
@@ -35,7 +36,7 @@
     </div>
     <div class="navbar-menu">
         <div class="navbar-start">
-            @each('components.projects.navbarmenu', App\Category::all()->where('published', true)->where('parent_id', null), 'root')
+            @each('components.projects.navbarprojectmenu', App\Category::all()->where('published', true)->where('parent_id', null), 'root')
         </div>
 
         <div class="navbar-end">
@@ -51,12 +52,22 @@
             </div>
         </div>
     </div>
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-    </a>
 </nav>
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                @yield('title')
+            </h1>
+            <h2 class="subtitle">
+                @yield('subtitle')
+            </h2>
+        </div>
+    </div>
+    <div class="hero-footer">
+        @yield('hero-footer')
+    </div>
+</section>
 @yield('content')
 </body>
 </html>

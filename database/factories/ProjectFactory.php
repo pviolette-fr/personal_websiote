@@ -5,7 +5,8 @@ use Faker\Generator as Faker;
 $factory->define(App\Project::class, function (Faker $faker) {
     return [
         'name' => $faker->userName,
-        'description' => $faker->text(200),
+        'short_description' => $faker->text(),
+        'description' => $faker->text(2000),
         'git_link' => $faker->url,
         'download_link' => $faker->url,
         'report_file' => 'report.pdf',
