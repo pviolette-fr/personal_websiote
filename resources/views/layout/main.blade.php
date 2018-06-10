@@ -35,6 +35,10 @@
     </div>
     <div class="navbar-menu">
         <div class="navbar-start">
+            @each('components.projects.navbarmenu', App\Category::all()->where('published', true)->where('parent_id', null), 'root')
+        </div>
+
+        <div class="navbar-end">
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">
                     About me
@@ -45,41 +49,6 @@
                     </a>
                 </div>
             </div>
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">
-                    University Projects
-                </a>
-                <div class="navbar-dropdown">
-                    <a class="navbar-item">
-                        SnakeRPG
-                    </a>
-                    <a class="navbar-item">
-                        LIDE
-                    </a>
-                </div>
-            </div>
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">
-                    Personal Projects
-                </a>
-                <div class="navbar-dropdown">
-                    <a class="navbar-item">
-                        Placeholder
-                    </a>
-                    <a class="navbar-item">
-                        Placeholder
-                    </a>
-                    <a class="navbar-item">
-                        Placeholder
-                    </a>
-                    <a class="navbar-item">
-                        Placeholder
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="navbar-end">
         </div>
     </div>
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">

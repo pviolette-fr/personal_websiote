@@ -11519,3 +11519,7 @@ label.panel-block:hover {
 
 /* import bulma extensions. https://wikiki.github.io/ */
 
+.navbar-category-dropwdown .icon {
+    margin-right: 0.25rem !important;
+}
+
