@@ -11519,3 +11519,12 @@ label.panel-block:hover {
 
 /* import bulma extensions. https://wikiki.github.io/ */
 
+.navbar-item.is-mega {
+    position: static;
+}
+
+.navbar-item.is-mega .is-mega-menu-title {
+    margin-bottom: 0;
+    padding: .375rem 1rem;
+}
+

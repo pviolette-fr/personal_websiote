@@ -18,11 +18,10 @@ class CreateProjectsTable extends Migration
             $table->string('name')->nullable(false);
             $table->string('short_description', 255);
             $table->text('description');
-            $table->string('git_link');
-            $table->string('readme_file');
-
-            $table->string('download_link');
-            $table->string('report_file');
+            $table->string('git_link')->nullable(true);
+            $table->string('readme_file')->nullable(true);
+            $table->string('download_link')->nullable(true);
+            $table->string('report_file')->nullable(true);
             $table->integer('category_id');
             $table->enum('status', ['finished', 'in developement', 'abandoned', 'waiting']);
             $table->text('status_explain');

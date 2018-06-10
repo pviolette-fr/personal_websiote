@@ -8,6 +8,10 @@ $factory->define(App\Category::class, function (Faker $faker) {
         'description' => $faker->text(500),
         'parent_id' => null,
         'published' => true,
-        'icon' => ''
+        'icon' => $faker->randomElement([
+            'fas fa-angle-right', 'fas fa-football-ball',
+            'fas fa-dumbbell', 'fas fa-archive',
+            'fas fa-folder'
+        ])
     ];
 });
