@@ -15,16 +15,16 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable(false);
+            $table->string('name')->nullable(false)->unique();
             $table->string('short_description', 255);
             $table->text('description');
-            $table->string('git_link')->nullable(true);
             $table->string('readme_file')->nullable(true);
             $table->string('download_link')->nullable(true);
             $table->string('report_file')->nullable(true);
             $table->integer('category_id');
             $table->enum('status', ['finished', 'in developement', 'abandoned', 'waiting']);
             $table->text('status_explain');
+            $table->boolean('published')->default(false);
             $table->timestamps();
 
             $table->foreign('category_id')

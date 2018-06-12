@@ -36,10 +36,12 @@
     </div>
     <div class="navbar-menu">
         <div class="navbar-start">
-            @each('components.projects.navbarprojectmenu', App\Category::all()->where('published', true)->where('parent_id', null), 'root')
+            @yield('navbar_start')
+            @each('components.projects.navbarprojectmenu', App\Category::allPublished()->where('parent_id', null), 'root')
         </div>
 
         <div class="navbar-end">
+            @yield('navbar_end')
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">
                     About me
@@ -69,5 +71,7 @@
     </div>
 </section>
 @yield('content')
+
+@include('layout.partials.footer')
 </body>
 </html>

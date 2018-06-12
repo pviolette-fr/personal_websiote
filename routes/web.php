@@ -15,10 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/project/{project}', function ($projectId) {
-    $project = \App\Project::find($projectId);
 
+Route::get('/{project}', function ($project) {
+
+    $projectModel = App\Project::where('name', $project)->first();
+    if ($projectModel == null) {
+        return null;
+    }
     return view('project', [
-        'project' => $project
+        'project' => $projectModel
     ]);
-})->where('id', '[0-9]+');
+});

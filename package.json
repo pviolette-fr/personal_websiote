@@ -24,6 +24,7 @@
     "dependencies": {
         "ajv": "^6.5.0",
         "bulma-calendar": "^2.0.1",
-        "bulma-carousel": "^2.0.14"
+        "bulma-carousel": "^2.0.14",
+        "bulma-divider": "^1.0.5"
     }
 }

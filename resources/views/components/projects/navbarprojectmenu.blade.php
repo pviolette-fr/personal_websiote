@@ -39,7 +39,7 @@
                             @endif
                         @endforeach
                         @foreach($child->projects as $project)
-                            <a class="navbar-item">
+                            <a class="navbar-item" href="{{ url('/' . $project->name) }}">
                                 {{ $project->name }}
                             </a>
                         @endforeach

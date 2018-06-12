@@ -24,6 +24,9 @@ class CategoryTableSeeder extends Seeder
                     $child = factory(App\Category::class)->make();
                     $c->children()->save($child);
                     $child->projects()->saveMany(factory(App\Project::class, $projectPerCategory)->make());
+                    foreach ($child->projects as $project) {
+                        $project->gitRepositories()->save(factory(App\GitRepository::class)->make());
+                    }
                 }
             });
     }

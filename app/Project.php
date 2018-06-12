@@ -18,6 +18,17 @@ class Project extends Model
         return $this->belongsTo("App\Category");
     }
 
+    public function gitRepositories()
+    {
+        return $this->belongsToMany('App\GitRepository', 'git_repositories_projects', 'project_id', 'git_repository_id')
+            ->withPivot(['is_main_repository']);
+    }
+
+    public function linkedProjects()
+    {
+        return $this->belongsToMany('App\Project', 'project_linked_projects', 'project_id', 'linked_project_id');
+    }
+
     public function loadReadme(): bool
     {
         return false;
@@ -26,5 +37,13 @@ class Project extends Model
     public function readmeContent(): string
     {
         return null;
+    }
+
+    /*
+     * Accessor
+     */
+    public function getLinkedPublishedProjectAttribute()
+    {
+        return $this->linkedProjects()->where('published', true);
     }
 }

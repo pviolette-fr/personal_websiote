@@ -31,4 +31,12 @@ class Category extends Model
     {
         return $this->hasMany('App\Category', 'parent_id');
     }
+
+    /**
+     * @return Category[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public static function allPublished()
+    {
+        return self::all()->where('published', true);
+    }
 }

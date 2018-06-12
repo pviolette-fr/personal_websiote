@@ -4,7 +4,7 @@
     {{ucfirst($project->name)}}
 @endsection
 @section('subtitle')
-    {{ucfirst($project->category->name)}}
+    {{$project->short_description}}
 @endsection
 @section('hero-footer')
     <nav class="tabs is-centered is-boxed">
@@ -20,7 +20,7 @@
                     <span>Read me</span>
                 </a>
             </li>
-            @if($project->git_link != '')
+            @if($project->gitRepositories->count() > 0)
                 <li>
                     <a href="#">
                         <span class="icon"><i class="fas fa-code-branch"></i></span>
@@ -31,7 +31,7 @@
             @if($project->report_file != '')
                 <li>
                     <a href="#">
-                        <span class="icon"><i class="fas fa-book"></i></span>
+                        <span class="icon"><i class="fas fa-graduation-cap"></i></span>
                         <span>Report</span>
                     </a>
                 </li>
@@ -44,15 +44,25 @@
                     </a>
                 </li>
             @endif
+            @if($project->linkedProjects->count() > 0)
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-link"></i></span>
+                        <span>See also</span>
+                    </a>
+                </li>
+            @endif
         </ul>
     </nav>
 
 @endsection
 @section('content')
     <div class="section">
-        <div class="container">
-            <div id="project_description" class="content">
+        <div id="project_description" class="container">
+            <div class="content">
                 {{ $project->description }}
+            </div>
+            <div class="is-divider"></div>
             </div>
             <div id="project_readme_content" class="is-hidden content">
                 <h1>{{ $project->readmeContent or "No Readme file for this project."}}</h1>
@@ -63,6 +73,5 @@
             <div id="project_download_tab" class="is-hidden content">
                 <h1>Tab in developpement</h1>
             </div>
-        </div>
     </div>
 @endsection
